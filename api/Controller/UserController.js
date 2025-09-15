@@ -101,8 +101,8 @@ exports.updateUserProfile = async (req, res) => {
         user.avatar = req.file.path.replace(/\\/g, "/");
 
         // Delete old avatar if it's not the default one
-        if (oldAvatarPath && oldAvatarPath !== '/images/profile/default.png') {
-          const fullPath = path.join(__dirname, '..', 'public', oldAvatarPath);
+        if (oldAvatarPath && oldAvatarPath !== "/images/profile/default.png") {
+          const fullPath = path.join(__dirname, "..", "public", oldAvatarPath);
           fs.unlink(fullPath, (err) => {
             if (err) {
               console.error("Failed to delete old avatar:", err);
