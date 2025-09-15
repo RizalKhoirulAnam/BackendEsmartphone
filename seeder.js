@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const connectDB = require("./database");
-const Product = require("./Models/Product");
-const Category = require("./Models/Category");
-const User = require("./Models/User");
-const Review = require("./Models/Review");
-const Order = require("./Models/Order");
+const Product = require("./api/Models/Product");
+const Category = require("./api/Models/Category");
+const User = require("./api/Models/User");
+const Review = require("./api/Models/Review");
+const Order = require("./api/Models/Order");
 const bcrypt = require("bcryptjs");
 
 dotenv.config();
@@ -533,8 +533,7 @@ const seedDB = async () => {
         paymentStatus: "paid",
         isPaid: true,
         paidAt: new Date(),
-        totalPrice:
-          createdProducts[0].price * 1 + createdProducts[1].price * 2,
+        totalPrice: createdProducts[0].price * 1 + createdProducts[1].price * 2,
       },
     ];
 

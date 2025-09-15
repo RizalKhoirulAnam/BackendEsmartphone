@@ -1,13 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const connectDB = require("./database");
+const connectDB = require("../database");
 const userRoutes = require("./Routes/UserRoutes");
 const productRoutes = require("./Routes/ProductRoutes");
 const reviewRoutes = require("./Routes/ReviewRoutes");
 const orderRoutes = require("./Routes/OrderRoutes");
 const categoryRoutes = require("./Routes/CategoryRoutes");
-const cartRoutes = require('./Routes/CartRoutes');
-const favoriteRoutes = require('./Routes/FavoriteRoutes');
+const cartRoutes = require("./Routes/CartRoutes");
+const favoriteRoutes = require("./Routes/FavoriteRoutes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
@@ -35,8 +35,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/favorites', favoriteRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/favorites", favoriteRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
