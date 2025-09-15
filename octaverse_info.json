@@ -1,0 +1,9 @@
+{
+  "MerchantID": "MPSSD0000000083",
+  "InvoiceNo": "MPSSPKK000001",
+  "Amount": 1500,
+  "CurrencyCode": "MMK",
+  "FrontendUrl": "https://mpss.com.mm",
+  "BackendUrl": "https://mpssuat.glitch.me/octoverse/result"
+
+}
