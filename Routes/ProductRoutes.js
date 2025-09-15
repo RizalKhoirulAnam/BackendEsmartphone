@@ -8,7 +8,7 @@ const {
   updateProduct,
   deleteProduct,
   searchProducts,
-} = require("../Controller/ProductController");
+} = require("../../Controller/ProductController");
 const reviewRouter = require("./ReviewRoutes");
 
 router.use("/:id/reviews", reviewRouter);

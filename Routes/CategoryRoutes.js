@@ -4,7 +4,7 @@ const {
   createCategory,
   getAllCategories,
   getProductsByCategory,
-} = require("../Controller/CategoryController");
+} = require("../../Controller/CategoryController");
 
 router.post("/", createCategory);
 router.get("/", getAllCategories);
