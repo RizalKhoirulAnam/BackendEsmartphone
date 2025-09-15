@@ -16,8 +16,13 @@ const app = express();
 
 // Middleware
 app.use(async (req, res, next) => {
-  await connectDB();
-  next();
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error("Database connection error:", error);
+    res.status(503).json({ message: "Service Unavailable: Could not connect to the database." });
+  }
 });
 app.use(express.json());
 app.use(cookieParser());
