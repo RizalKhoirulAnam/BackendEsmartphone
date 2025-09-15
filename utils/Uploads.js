@@ -1,28 +1,8 @@
 const multer = require("multer");
 const path = require("path");
 
-// Define storage for different file types
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    let dest;
-    if (file.fieldname === "images") {
-      dest = "public/images/product";
-    } else if (file.fieldname === "photo") {
-      dest = "public/images/review";
-    } else if (file.fieldname === "proof") {
-      dest = "public/images/paymentproof";
-    } else {
-      dest = "public/images";
-    }
-    cb(null, dest);
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
+// Using memory storage for serverless environments
+const storage = multer.memoryStorage();
 
 // File filter to validate file types
 const fileFilter = (req, file, cb) => {
@@ -41,5 +21,9 @@ const upload = multer({
   fileFilter,
   limits: { fileSize: 1024 * 1024 * 5 }, // 5MB file size limit
 });
+
+// In a real-world serverless app, you would add middleware after this
+// to upload the file(s) from req.file(s).buffer to a cloud storage provider
+// like Cloudinary, AWS S3, or Google Cloud Storage.
 
 module.exports = upload;
